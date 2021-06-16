@@ -4,7 +4,7 @@ import { ContextApp } from "../hooks/ContextApp";
 import IsFormValid from "../actions/validateForm";
 const FormUser = () => {
   //context que almacenará la opción escogida por el usuario
-  const { Aerolinea, error, seterror,setNotificacion } = useContext(ContextApp);
+  const { Aerolinea, error, seterror, setNotificacion } = useContext(ContextApp);
   //importación de funciones en use form
   const [formValues, handleInputChange, reset] = useForm({
     name: "",
@@ -12,13 +12,13 @@ const FormUser = () => {
     celular: "",
     edad: "30"
   });
-  const showNotification =() =>{
-    console.log('notficacion')
+  //funcion de mostrar la notificacion usuario aceptado
+  const showNotification = () => {
     reset()
     setNotificacion(true)
     setTimeout(() => { setNotificacion(false) }, 5000);
     seterror('')
-    
+
   }
   const { email, celular, name, edad } = formValues;
   //estado para manejar la edad en el input range
@@ -39,7 +39,7 @@ const FormUser = () => {
       <h3 className="form__title">
         {Aerolinea === "" ?
           `Hola bienvenido a FIFERAIR, selecciona una aerolinea`
-          : (<div>`Hola, bienvenido, sabemos que quieres viajar en <span className={`text${Aerolinea}`}>{Aerolinea}</span>, por favor diligencia el siguiente formulario:`</div>)
+          : (<div>Hola, bienvenido, sabemos que quieres viajar en <span className={`text${Aerolinea}`}>{Aerolinea}</span>, por favor diligencia el siguiente formulario:</div>)
         } </h3>
       <form onSubmit={handleSubmit}>
 
@@ -60,7 +60,7 @@ const FormUser = () => {
           value={email}
           onChange={handleInputChange}
         />
-        <label > Selecciona tu edad {age} años</label>
+        <label className="labelAge"> Selecciona tu edad {age} años</label>
         <input
           type="range" min="18" max="100"
           name="edad"
@@ -79,12 +79,12 @@ const FormUser = () => {
         />
 
 
-        <button type="submit" className="btn btn-primary btn-block">
+        <button type="submit" className={`btn btn-primary btn-block ${Aerolinea}`}>
           Enviar datos
         </button>
 
         <div className="footer-form">
-          {error !== "" && <div className="alert-error">{error}</div> }
+          {error !== "" && <div className="alert-error">{error}</div>}
           <p>Gracias por usar nuestros servicios</p>
 
         </div>
