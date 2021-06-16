@@ -1,24 +1,32 @@
 import { useForm } from "../hooks/useForm";
-import { useState, useEffect,useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { ContextApp } from "../hooks/ContextApp";
-import IsFormValid  from "../actions/validateForm";
+import IsFormValid from "../actions/validateForm";
 const FormUser = () => {
   //context que almacenará la opción escogida por el usuario
-  const { Aerolinea,error,seterror} = useContext(ContextApp);
+  const { Aerolinea, error, seterror,setNotificacion } = useContext(ContextApp);
   //importación de funciones en use form
-  const [formValues, handleInputChange,reset] = useForm({
+  const [formValues, handleInputChange, reset] = useForm({
     name: "",
     email: "",
     celular: "",
     edad: "30"
   });
+  const showNotification =() =>{
+    console.log('notficacion')
+    reset()
+    setNotificacion(true)
+    setTimeout(() => { setNotificacion(false) }, 5000);
+    seterror('')
+    
+  }
   const { email, celular, name, edad } = formValues;
   //estado para manejar la edad en el input range
   const [age, setage] = useState(edad);
   useEffect(() => {
     setage(edad)
-    error === "ok" && reset()
-  }, [edad,Aerolinea,error]);
+    error === "ok" && showNotification()
+  }, [edad, Aerolinea, error]);
 
   //funcion para manejar el envío de los datos
   const handleSubmit = (event) => {
@@ -28,11 +36,11 @@ const FormUser = () => {
 
   return (
     <div className="formUser">
-      <h3 className="form__title"> 
-      {Aerolinea === "" ?
-       `Hola bienvenido a FIFERAIR, selecciona una aerolinea`
-       :(<div>`Hola, bienvenido, sabemos que quieres viajar en <span className={`text${Aerolinea}`}>{Aerolinea}</span>, por favor diligencia el siguiente formulario:`</div>)
-} </h3>
+      <h3 className="form__title">
+        {Aerolinea === "" ?
+          `Hola bienvenido a FIFERAIR, selecciona una aerolinea`
+          : (<div>`Hola, bienvenido, sabemos que quieres viajar en <span className={`text${Aerolinea}`}>{Aerolinea}</span>, por favor diligencia el siguiente formulario:`</div>)
+        } </h3>
       <form onSubmit={handleSubmit}>
 
         <input
@@ -76,7 +84,7 @@ const FormUser = () => {
         </button>
 
         <div className="footer-form">
-          {error != "ok" ? <div className="alert-error">{error}</div>:null}
+          {error !== "" && <div className="alert-error">{error}</div> }
           <p>Gracias por usar nuestros servicios</p>
 
         </div>

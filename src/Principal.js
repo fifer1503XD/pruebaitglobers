@@ -8,9 +8,10 @@ export const Principal = () => {
 
     const [Aerolinea, setAerolinea] = useState('');
     const [error, seterror] = useState('');
+    const [Notificacion, setNotificacion] = useState();
     const [User, setUser] = useState();
     return (
-      <ContextApp.Provider value={{Aerolinea, setAerolinea,User, setUser,error, seterror}}>
+      <ContextApp.Provider value={{Aerolinea, setAerolinea,User, setUser,error, seterror,Notificacion, setNotificacion}}>
         <ContainerApp />
       </ContextApp.Provider>
     );
