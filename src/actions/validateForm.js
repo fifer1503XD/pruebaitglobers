@@ -38,7 +38,7 @@ export const DataUser = (name, email, celular, edad) => {
     validator.blacklist(email, '/\\[\\]!<>_?{} # $ % &"'),
     validator.blacklist(celular, '/\\[\\]!<>_?@{} # $ % &"'),
     edad)
-
+  console.log(data)
 }
 
 export default IsFormValid
