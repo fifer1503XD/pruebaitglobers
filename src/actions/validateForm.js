@@ -5,7 +5,9 @@ const IsFormValid = (name, email, celular, edad) => {
   if (name.trim().length === 0) {
     return ("Name is required");
   }
-
+  else if (validator.blacklist(name, '/\\[\\]!<>_?@{}#$%&"1234567890^"').length < 5) {
+    return ('Name is not complete or Contain special caracters');
+  }
   else if (name.trim().length < 5) {
     return ('Name is not complete');
   }

@@ -38,10 +38,9 @@ const FormUser = () => {
     <div className="formUser">
       <h3 className="form__title">
         {Aerolinea === "" ?
-          (<div className="form__title">Hola bienvenido a FIFERAIR 
+          (<div className="form__title">`Hola bienvenido a FIFERAIR 
            Selecciona una aerolinea</div>)
           : (<div>Hola, bienvenido, sabemos que quieres viajar en <span className={`text${Aerolinea}`}>{Aerolinea}</span>, por favor diligencia el siguiente formulario:
-       
       <form onSubmit={handleSubmit}>
 
         <input
@@ -80,7 +79,7 @@ const FormUser = () => {
         />
 
 
-        <button type="submit" className={`btn btn-primary btn-block ${Aerolinea}`}>
+        <button type="submit" className={`btnForm ${Aerolinea}`}>
           Enviar datos
         </button>
 
@@ -89,8 +88,9 @@ const FormUser = () => {
           <p>Gracias por usar nuestros servicios</p>
 
         </div>
-      </form> </div>)}
-      </h3>
+      </form>
+      </div>)
+        } </h3>
     </div>
   );
 }
