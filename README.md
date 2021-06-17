@@ -1,10 +1,9 @@
-# Getting Started with Create React App
+# APP PRUEBA TECNICA EMPRESA ITGLOBERS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+## DESPUES DE CLONAR EJECUTAR LOS COMANDOS
+
 ### `npm install`
 ### `npm start`
 
