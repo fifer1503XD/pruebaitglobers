@@ -1,24 +1,20 @@
 import FormUser from "../components/FormUser";
 import Menu from "../components/Menu";
-import {UserValidateModal} from "../modals/userValidateModal"
+import { UserValidateModal } from "../modals/userValidateModal"
 const ContainerApp = () => {
-    
-    return ( 
+
+    return (
         <>
-        <div className ="containerapp">
-        
-           
-       
-              <Menu/>
-              </div>
-        <div>
-        <FormUser/>
-        
-        </div>
-        <UserValidateModal/>
+            <div className="containerapp">
+                <Menu />
+            </div>
+            <div>
+                <FormUser />
+            </div>
+            <UserValidateModal />
         </>
-      
-     );
+
+    );
 }
- 
+
 export default ContainerApp;

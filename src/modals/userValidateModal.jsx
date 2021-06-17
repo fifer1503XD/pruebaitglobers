@@ -1,4 +1,4 @@
-import {Modal,Button} from 'react-bootstrap'
+import {Modal} from 'react-bootstrap'
 import React, { useContext } from 'react';
 import { ContextApp } from '../hooks/ContextApp';
 
@@ -6,7 +6,6 @@ export const UserValidateModal = (props) => {
   const { Notificacion, setNotificacion} = useContext(ContextApp);
 
   const handleClose = () => setNotificacion(false);
-  const handleShow = () => setNotificacion(true);
 
   return (
     <>

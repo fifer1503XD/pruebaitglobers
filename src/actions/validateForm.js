@@ -36,10 +36,12 @@ const IsFormValid = (name, email, celular, edad) => {
 
 export const DataUser = (name, email, celular, edad) => {
   const data = []
-  data.push(validator.blacklist(name, '/\\[\\]!<>_?@{}#$%&"1234567890'),
-    validator.blacklist(email, '/\\[\\]!<>_?{} # $ % &"'),
-    validator.blacklist(celular, '/\\[\\]!<>_?@{} # $ % &"'),
-    edad)
+  data.push({
+    name: validator.blacklist(name, '/\\[\\]!<>_?@{}#$%&"1234567890'),
+    email: validator.blacklist(email, '/\\[\\]!<>_?{} # $ % &"'),
+    phone: validator.blacklist(celular, '/\\[\\]!<>_?@{} # $ % &"'),
+    edad: edad
+  })
   console.log(data)
 }
 
