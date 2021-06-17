@@ -38,9 +38,10 @@ const FormUser = () => {
     <div className="formUser">
       <h3 className="form__title">
         {Aerolinea === "" ?
-          `Hola bienvenido a FIFERAIR, selecciona una aerolinea`
-          : (<div>Hola, bienvenido, sabemos que quieres viajar en <span className={`text${Aerolinea}`}>{Aerolinea}</span>, por favor diligencia el siguiente formulario:</div>)
-        } </h3>
+          (<div className="form__title">Hola bienvenido a FIFERAIR 
+           Selecciona una aerolinea</div>)
+          : (<div>Hola, bienvenido, sabemos que quieres viajar en <span className={`text${Aerolinea}`}>{Aerolinea}</span>, por favor diligencia el siguiente formulario:
+       
       <form onSubmit={handleSubmit}>
 
         <input
@@ -88,7 +89,8 @@ const FormUser = () => {
           <p>Gracias por usar nuestros servicios</p>
 
         </div>
-      </form>
+      </form> </div>)}
+      </h3>
     </div>
   );
 }
